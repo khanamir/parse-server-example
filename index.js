@@ -14,8 +14,8 @@ if (!databaseUri) {
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
-  appId: process.env.APP_ID || 'rockmobile-dev',
-  masterKey: process.env.MASTER_KEY || 'master', //Add your master key here. Keep it secret!
+  appId: process.env.APP_ID || 'Q4b7fVvyYCVQKiZnaU075d1pyGQfl8r91AWXNXyE',
+  masterKey: process.env.MASTER_KEY || 'L7ndNbt5v21g2UTh7JRJuhIhgEBtIOBbWYnR7Okm', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   liveQuery: {
     classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
