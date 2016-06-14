@@ -5,8 +5,10 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 
+var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI;
+
 var api = new ParseServer({
-  databaseURI: process.env.DATABASE_URI || 'mongodb://localhost:27017/dev',
+  databaseURI: databaseUri || 'mongodb://localhost:27017/dev',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID,
   masterKey: process.env.MASTER_KEY,
@@ -34,9 +36,9 @@ app.get('/', function(req, res) {
 
 // There will be a test page available on the /test path of your server url
 // Remove this before launching your app
-app.get('/test', function(req, res) {
-  res.sendFile(path.join(__dirname, '/public/test.html'));
-});
+// app.get('/test', function(req, res) {
+//   res.sendFile(path.join(__dirname, '/public/test.html'));
+// });
 
 var port = process.env.PORT || 1337;
 var httpServer = require('http').createServer(app);
